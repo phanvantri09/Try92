@@ -15,6 +15,18 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('img')->nullable();
+            $table->longText('content')->nullable();
+            $table->string('time_create')->nullable();
+            $table->text('link_ytb')->nullable();
+            $table->text('link_ytb_topic')->nullable();
+            $table->text('link_zing')->nullable();
+            $table->text('link_spotify')->nullable();
+            $table->text('link_apple')->nullable();
+            $table->text('link_NCT')->nullable();
+            $table->text('link_tiktok')->nullable();
+            $table->text('link_facebook')->nullable();
             $table->timestamps();
         });
     }
