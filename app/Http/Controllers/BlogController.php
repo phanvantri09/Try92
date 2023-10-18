@@ -4,82 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use App\Http\Requests\Blog\RQAdd;
+use App\Http\Requests\Blog\RQEdit;
+use App\Repositories\BlogRepositoryInterface;
+use App\Helpers\ConstCommon;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public $title = "Blog";
+    protected $blogRepository;
+    public function __construct(BlogRepositoryInterface $blogRepository) {
+        $this->blogRepository = $blogRepository;
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function list(){
+        return view('admin.blog.list');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function add(){
+        $title = '';
+        return view('admin.blog.add', compact(['title']));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Blog $blog)
-    {
-        //
+    public function addPost(RQAdd $request){
+        if ($this->blogRepository->create($request->all())) {
+            return redirect()->route('blog.list')->with('success', ConstCommon::SUCCESS);
+        }
+        return view('admin.blog.add');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Blog $blog)
-    {
-        //
+    public function edit($id){
+        $data = $this->blogRepository->show($id);
+        return view('admin.blog.edit', compact(['id','title', 'data']));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Blog $blog)
-    {
-        //
+    public function editPost(RQEdit $request, $id){
+        if ($this->blogRepository->update($request->all())) {
+            return redirect()->route('blog.list')->with('success', ConstCommon::SUCCESS);
+        }
+        return view('admin.blog.add');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Blog $blog)
-    {
-        //
+    public function delete($id){
+        return view('admin.blog.add');
+    }
+    public function show($id){
+        return view('admin.blog.add');
     }
 }

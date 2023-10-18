@@ -59,4 +59,23 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/show/{id}', 'show')->name('show');
         });
     });
+    Route::group(['prefix' => 'blog', 'as' =>'blog.'], function () {
+        Route::controller(BlogController::class)->group(function () {
+            // danh sách
+            Route::get('/','list')->name('list');
+
+            // thêm
+            Route::get('/add', 'add')->name('add');
+            Route::post('/add', 'addPost')->name('addPost');
+
+            //sửa
+            Route::get('edit/{id}','edit')->name('edit');
+            Route::post('edit/{id}','editPost')->name('editPost');
+            // xóa
+            Route::get('/delete/{id}', 'delete')->name('delete');
+
+            // hiển thị tất cả
+            Route::get('/show/{id}', 'show')->name('show');
+        });
+    });
 });

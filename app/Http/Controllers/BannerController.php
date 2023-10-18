@@ -4,88 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use App\Http\Requests\Banner\RQAdd;
+use App\Http\Requests\Banner\RQEdit;
+use App\Repositories\BannerRepositoryInterface;
+use App\Helpers\ConstCommon;
 
 class BannerController extends Controller
 {
+    protected $bannerRepository;
+    public function __construct(BannerRepositoryInterface $bannerRepository) {
+        $this->bannerRepository = $bannerRepository;
+    }
     public function list(){
         return view('admin.banner.list');
     }
     public function add(){
         return view('admin.banner.add');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function addPost(RQAdd $request){
+        return view('admin.banner.add');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function edit($id){
+        return view('admin.banner.edit');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function editPost(RQEdit $request, $id){
+        return view('admin.banner.add');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Banner $banner)
-    {
-        //
+    public function delete($id){
+        return view('admin.banner.add');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Banner $banner)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Banner $banner)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Banner  $banner
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Banner $banner)
-    {
-        //
+    public function show($id){
+        return view('admin.banner.add');
     }
 }
