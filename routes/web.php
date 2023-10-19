@@ -20,6 +20,12 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/','index')->name('index');
         });
 });
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login','login')->name('login');
+    Route::post('/login','login')->name('login');
+    Route::get('/logout', 'logout')->name('logout');
+});
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'banner', 'as' =>'banner.'], function () {
         Route::controller(BannerController::class)->group(function () {

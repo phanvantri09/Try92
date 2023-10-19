@@ -11,33 +11,54 @@ use App\Helpers\ConstCommon;
 
 class BlogController extends Controller
 {
-    public $title = "Blog";
     protected $blogRepository;
     public function __construct(BlogRepositoryInterface $blogRepository) {
         $this->blogRepository = $blogRepository;
     }
     public function list(){
-        return view('admin.blog.list');
+        $title = 'Blog list';
+        $data = $this->blogRepository->all();
+        return view('admin.blog.list', compact(['data', 'title']));
     }
     public function add(){
-        $title = '';
+        $title = 'Blog Add';
         return view('admin.blog.add', compact(['title']));
     }
     public function addPost(RQAdd $request){
-        if ($this->blogRepository->create($request->all())) {
+
+        $nameImage = 'Blog-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
+        ConstCommon::addImageToStorage($request->img, $nameImage );
+        $data = ['name'=>$request->name, 'img'=>$nameImage, 'content'=>$request->content, 'content_pre'=>$request->content_pre];
+        if ($this->blogRepository->create($data)) {
             return redirect()->route('blog.list')->with('success', ConstCommon::SUCCESS);
+        } else {
+            return redirect()->back()->with('error', ConstCommon::ERROR);
         }
         return view('admin.blog.add');
     }
     public function edit($id){
+        $title = 'Blog edit';
+
         $data = $this->blogRepository->show($id);
         return view('admin.blog.edit', compact(['id','title', 'data']));
     }
     public function editPost(RQEdit $request, $id){
-        if ($this->blogRepository->update($request->all())) {
-            return redirect()->route('blog.list')->with('success', ConstCommon::SUCCESS);
+
+        if (!empty($request->img)) {
+            $it = $this->blogRepository->show($id);
+            ConstCommon::delImageToStorage($it->img);
+            $nameImage = 'Blog-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
+            ConstCommon::addImageToStorage($request->img, $nameImage );
+            $data = ['name'=>$request->name, 'img'=>$nameImage, 'content'=>$request->content, 'content_pre'=>$request->content_pre];
+        } else {
+            $data = ['name'=>$request->name, 'content'=>$request->content, 'content_pre'=>$request->content_pre];
         }
-        return view('admin.blog.add');
+        if ($this->blogRepository->update($data, $id)) {
+            return redirect()->route('blog.list')->with('success', ConstCommon::SUCCESS);
+        } else {
+            return redirect()->back()->with('error', ConstCommon::ERROR);
+        }
+        return view('admin.blog.edit');
     }
     public function delete($id){
         return view('admin.blog.add');
