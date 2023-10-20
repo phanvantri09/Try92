@@ -46,7 +46,13 @@
     <!-- header-end -->
 
     <!-- slider_area_start -->
+    @php
+        use Illuminate\Support\Facades\Route;
+    @endphp
+    @if (Route::currentRouteName() == 'index')
     @include('layout.banner')
+    @endif
+    
     <!-- slider_area_end -->
 
     @yield('content')

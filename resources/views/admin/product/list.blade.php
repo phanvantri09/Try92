@@ -25,6 +25,8 @@
                             <tr>
                                 <th>stt</th>
                                 <th>Tiêu đề</th>
+                                <th>Thời gian up bài</th>
+                                <th>Link</th>
                                 <th>Ảnh </th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
@@ -34,17 +36,31 @@
                             @foreach ($data as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td><img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img)}}" alt=""></td>
-                                    <td>{{ date(' H:i:s - d/m/Y', strtotime($item->created_at))}}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->time_create }}</td>
                                     <td>
-                                        <a href="{{ route('banner.show', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ $item->link_ytb }}" target="_blank">{{ $item->link_ytb }}</a><br>
+                                        <a href="{{ $item->link_ytb_topic }}" target="_blank">{{ $item->link_ytb_topic }}</a><br>
+                                        <a href="{{ $item->link_zing }}" target="_blank">{{ $item->link_zing }}</a><br>
+                                        <a href="{{ $item->link_spotify }}" target="_blank">{{ $item->link_spotify }}</a><br>
+                                        <a href="{{ $item->link_apple }}" target="_blank">{{ $item->link_apple }}</a><br>
+                                        <a href="{{ $item->link_NCT }}" target="_blank">{{ $item->link_NCT }}</a><br>
+                                        <a href="{{ $item->link_tiktok }}" target="_blank">{{ $item->link_tiktok }}</a><br>
+                                        <a href="{{ $item->link_facebook }}" target="_blank">{{ $item->link_facebook }}</a><br>
+                                        
+                                    </td>
+                                    <td><img width="180px" height="auto"
+                                            src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}"
+                                            alt=""></td>
+                                    <td>{{ date(' H:i:s - d/m/Y', strtotime($item->created_at)) }}</td>
+                                    <td>
+                                        <a href="{{ route('product.show', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-book-open"></i> Xem
                                         </a>
-                                        <a  href="{{ route('banner.edit', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('product.edit', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
-                                        <a href="{{ route('banner.delete', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('product.delete', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-trash-alt"></i>Xóa
                                         </a>
 

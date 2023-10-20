@@ -35,4 +35,8 @@ class BlogRepository implements BlogRepositoryInterface
     public function getAllByType($type){
         return Blog::where('type', $type)->get();
     }
+    public function newBlog4(){
+        return Blog::orderByDesc('created_at')->limit(4)->get();
+    }
+    
 }

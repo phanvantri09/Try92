@@ -13,7 +13,7 @@ class RQEdit extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class RQEdit extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'img' => 'required',
+           
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Vui lòng nhập',
+            'img.required' => 'Vui lòng nhập',
+            
         ];
     }
 }

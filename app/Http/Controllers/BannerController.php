@@ -8,7 +8,7 @@ use App\Http\Requests\Banner\RQAdd;
 use App\Http\Requests\Banner\RQEdit;
 use App\Repositories\BannerRepositoryInterface;
 use App\Helpers\ConstCommon;
-
+use Illuminate\Support\Facades\Storage;
 class BannerController extends Controller
 {
     protected $bannerRepository;
@@ -16,24 +16,61 @@ class BannerController extends Controller
         $this->bannerRepository = $bannerRepository;
     }
     public function list(){
-        return view('admin.banner.list');
+        $title = 'banner list';
+        $data = $this->bannerRepository->all();
+        return view('admin.banner.list', compact(['data', 'title']));
     }
     public function add(){
-        return view('admin.banner.add');
+        $title = 'banner Add';
+        return view('admin.banner.add', compact(['title']));
     }
     public function addPost(RQAdd $request){
+
+        $nameImage = 'banner-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
+        ConstCommon::addImageToStorage($request->img, $nameImage );
+        $data = ['name'=>$request->name, 'img'=>$nameImage];
+        if ($this->bannerRepository->create($data)) {
+            return redirect()->route('banner.list')->with('success', ConstCommon::SUCCESS);
+        } else {
+            return redirect()->back()->with('error', ConstCommon::ERROR);
+        }
         return view('admin.banner.add');
     }
     public function edit($id){
-        return view('admin.banner.edit');
+        $title = 'banner edit';
+
+        $data = $this->bannerRepository->show($id);
+        return view('admin.banner.edit', compact(['id','title', 'data']));
     }
     public function editPost(RQEdit $request, $id){
-        return view('admin.banner.add');
+
+        if (!empty($request->img)) {
+            $it = $this->bannerRepository->show($id);
+            Storage::disk('public')->delete('images/' . $it->img);
+            // ConstCommon::delImageToStorage($it->img);
+            $nameImage = 'banner-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
+            ConstCommon::addImageToStorage($request->img, $nameImage );
+            $data = ['name'=>$request->name, 'img'=>$nameImage];
+        } else {
+            $data = ['name'=>$request->name];
+        }
+        if ($this->bannerRepository->update($data, $id)) {
+            return redirect()->route('banner.list')->with('success', ConstCommon::SUCCESS);
+        } else {
+            return redirect()->back()->with('error', ConstCommon::ERROR);
+        }
+        return view('admin.banner.edit');
     }
     public function delete($id){
-        return view('admin.banner.add');
+        $it = $this->bannerRepository->show($id);
+        if ($this->bannerRepository->delete($id)) {
+            Storage::disk('public')->delete('images/' . $it->img);
+            return redirect()->route('banner.list')->with('success',ConstCommon::SUCCESS);
+        }
     }
     public function show($id){
-        return view('admin.banner.add');
+        $title = 'banner show' .$id;
+        $data = $this->bannerRepository->show($id);
+        return view('admin.banner.show', compact(['id','title', 'data']));
     }
 }

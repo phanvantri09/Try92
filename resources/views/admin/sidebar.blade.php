@@ -95,6 +95,54 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Banner
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">5</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('banner.list') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('banner.add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Product
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">3</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('product.list') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('product.add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 

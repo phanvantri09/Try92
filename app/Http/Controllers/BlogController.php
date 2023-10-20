@@ -8,7 +8,7 @@ use App\Http\Requests\Blog\RQAdd;
 use App\Http\Requests\Blog\RQEdit;
 use App\Repositories\BlogRepositoryInterface;
 use App\Helpers\ConstCommon;
-
+use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     protected $blogRepository;
@@ -46,7 +46,8 @@ class BlogController extends Controller
 
         if (!empty($request->img)) {
             $it = $this->blogRepository->show($id);
-            ConstCommon::delImageToStorage($it->img);
+            Storage::disk('public')->delete('images/' . $it->img);
+            // ConstCommon::delImageToStorage($it->img);
             $nameImage = 'Blog-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
             ConstCommon::addImageToStorage($request->img, $nameImage );
             $data = ['name'=>$request->name, 'img'=>$nameImage, 'content'=>$request->content, 'content_pre'=>$request->content_pre];
@@ -61,9 +62,13 @@ class BlogController extends Controller
         return view('admin.blog.edit');
     }
     public function delete($id){
-        return view('admin.blog.add');
+        if ($this->blogRepository->delete($id)) {
+            return redirect()->route('blog.list')->with('success',ConstCommon::SUCCESS);
+        }
     }
     public function show($id){
-        return view('admin.blog.add');
+        $title = 'Blog show' .$id;
+        $data = $this->blogRepository->show($id);
+        return view('admin.blog.show', compact(['id','title', 'data']));
     }
 }

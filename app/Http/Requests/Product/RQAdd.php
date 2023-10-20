@@ -13,7 +13,7 @@ class RQAdd extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class RQAdd extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required', 
+            'img'=>'required', 
+            'content'=>'required', 
+        ];
+        
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Vui lòng nhập',
+            'img.required' => 'Vui lòng nhập',
+            'content.required' => 'Vui lòng nhập',
         ];
     }
 }

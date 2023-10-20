@@ -17,16 +17,19 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="index.html">Trang chủ</a></li>
-                                        <li><a href="about.html">Liên hệ</a></li>
-                                        <li><a href="track.html">tracks</a></li>
-                                        <li><a href="#">blog</a>
+                                        <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                        <li><a href="{{ route('tracks') }}">tracks</a></li>
+                                        <li><a href="{{ route('blogs') }}">blogs</a>
                                         </li>
+                                        @auth
                                         <li><a href="#">Admin <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
                                                 <li><a href="single-blog.html">single-blog</a></li>
                                             </ul>
                                         </li>
+                                        @endauth
+                                        
                                         <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                  <li><a href="elements.html">elements</a></li>

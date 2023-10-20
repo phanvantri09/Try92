@@ -18,6 +18,13 @@ Route::group(['prefix' => '/'], function () {
         Route::controller(HomeController::class)->group(function () {
             // danh sách
             Route::get('/','index')->name('index');
+            
+            Route::get('/contact','contact')->name('contact');
+            Route::post('/contactPost','contactPost')->name('contactPost');
+            
+            Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
+            Route::get('/blogs','blogs')->name('blogs');
+            Route::get('/tracks','tracks')->name('tracks');
         });
 });
 
@@ -67,6 +74,25 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::group(['prefix' => 'blog', 'as' =>'blog.'], function () {
         Route::controller(BlogController::class)->group(function () {
+            // danh sách
+            Route::get('/','list')->name('list');
+
+            // thêm
+            Route::get('/add', 'add')->name('add');
+            Route::post('/add', 'addPost')->name('addPost');
+
+            //sửa
+            Route::get('edit/{id}','edit')->name('edit');
+            Route::post('edit/{id}','editPost')->name('editPost');
+            // xóa
+            Route::get('/delete/{id}', 'delete')->name('delete');
+
+            // hiển thị tất cả
+            Route::get('/show/{id}', 'show')->name('show');
+        });
+    });
+    Route::group(['prefix' => 'product', 'as' =>'product.'], function () {
+        Route::controller(ProductController::class)->group(function () {
             // danh sách
             Route::get('/','list')->name('list');
 

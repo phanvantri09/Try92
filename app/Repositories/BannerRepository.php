@@ -9,7 +9,10 @@ class BannerRepository implements BannerRepositoryInterface
     {
         return Banner::all();
     }
-
+    public function getActive()
+    {
+        return Banner::where('status', true)->first();
+    }
     public function create(array $data)
     {
         return Banner::create($data);

@@ -11,12 +11,14 @@
                         <div class="col-xl-9 col-md-9">
                             <div class="music_field">
                                 <div class="thumb">
-                                    <img height="200px" width="200px" src="img/music_man/lydonao.jpg" alt="">
+                                    <img height="200px" width="200px"
+                                        src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($products[0]->img ?? null) }}"
+                                        alt="">
                                 </div>
                                 <div class="audio_name">
                                     <div class="name">
-                                        <h4>Lý do nào</h4>
-                                        <p>1-11-2023</p>
+                                        <h4>{{ $products[0]->name ?? null }}</h4>
+                                        <p>{{ $products[0]->time_create ?? null }}</p>
                                     </div>
                                     <audio preload="auto" controls>
                                         <source src="https://www.w3schools.com/html/horse.mp3">
@@ -43,19 +45,18 @@
             <div class="row align-items-center">
                 <div class="col-xl-5 col-md-6">
                     <div class="about_thumb">
-                        <img class="img-fluid" src="img/about/about_1.png" alt="">
+                        <img class="img-fluid" src="img/imageTry92/try92.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-xl-7 col-md-6">
                     <div class="about_info">
-                        <h3>Jack Kalib</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing
-                            drawing. Apartments frequently or motionless on reasonable projecting expression enim ad
-                            minim veniam quis nostrud exercitation we have supported programmes to help alleviate human
-                            suffering through animal welfare when people might depend.</p>
-                        <div class="signature">
+                        <h3>Try92</h3>
+                        <p>Tên thật là Phan Văn Trí, sinh ra ở Quảng Nam(92) <br>
+                            Là GenZ chính hiệu | 09-02-2020, Mình đã tập viết nhạc từ những năm cấp 3 và nuôi dưỡng niềm đam
+                            mê đến bây giờ.</p>
+                        {{-- <div class="signature">
                             <img src="img/about/signature.png" alt="">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -67,82 +68,29 @@
     <div class="youtube_video_area">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single_video">
-                        <div class="thumb">
-                            <img src="img/video/1.png" alt="">
-                        </div>
-                        <div class="hover_elements">
-                            <div class="video">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8">
-                                    <i class="fa fa-play"></i>
-                                </a>
+                @foreach ($blogs as $item)
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="single_video">
+                            <div class="thumb">
+                                <img width="475px" height="475px"
+                                    src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img ?? null) }}"
+                                    alt="">
                             </div>
+                            <div class="hover_elements">
+                                <div class="video">
+                                    <a class="popup-video" href="https://www.youtube.com/watch?app=desktop&v=ycMYhQsifTI">
+                                        <i class="fa fa-play"></i>
+                                    </a>
+                                </div>
 
-                            <div class="hover_inner">
-                                <span>New York Show-2018</span>
-                                <h3><a href="#">Shadows of My Dream</a></h3>
+                                <div class="hover_inner">
+                                    <span>{{ $item->created_at ?? null }}</span>
+                                    <h3><a href="{{ route('blogsItem', ['id' => $item->id]) }}">{{ $item->name ?? null }}</a></h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single_video">
-                        <div class="thumb">
-                            <img src="img/video/2.png" alt="">
-                        </div>
-                        <div class="hover_elements">
-                            <div class="video">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8">
-                                    <i class="fa fa-play"></i>
-                                </a>
-                            </div>
-
-                            <div class="hover_inner">
-                                <span>New York Show-2018</span>
-                                <h3><a href="#">Shadows of My Dream</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single_video">
-                        <div class="thumb">
-                            <img src="img/video/3.png" alt="">
-                        </div>
-                        <div class="hover_elements">
-                            <div class="video">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8">
-                                    <i class="fa fa-play"></i>
-                                </a>
-                            </div>
-
-                            <div class="hover_inner">
-                                <span>New York Show-2018</span>
-                                <h3><a href="#">Shadows of My Dream</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="single_video">
-                        <div class="thumb">
-                            <img src="img/video/4.png" alt="">
-                        </div>
-                        <div class="hover_elements">
-                            <div class="video">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8">
-                                    <i class="fa fa-play"></i>
-                                </a>
-                            </div>
-
-                            <div class="hover_inner">
-                                <span>New York Show-2018</span>
-                                <h3><a href="#">Shadows of My Dream</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -154,94 +102,45 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-65">
-                        <h3>Latest Tracks</h3>
+                        <h3>Bản phát hành</h3>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-center mb-20">
-                <div class="col-xl-10">
-                    <div class="row align-items-center">
-                        <div class="col-xl-9 col-md-9">
-                            <div class="music_field">
-                                <div class="thumb">
-                                    <img src="img/music_man/1.png" alt="">
-                                </div>
-                                <div class="audio_name">
-                                    <div class="name">
-                                        <h4>Frando Kally</h4>
-                                        <p>10 November, 2019</p>
-                                    </div>
-                                    <audio preload="auto" controls>
-                                        <source src="https://www.w3schools.com/html/horse.mp3">
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-3">
-                            <div class="music_btn">
-                                <a href="#" class="boxed-btn">buy albam</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @foreach ($products as $item)
+                <div class="row align-items-center justify-content-center mb-20">
 
-            </div>
-            <div class="row align-items-center justify-content-center mb-20">
-                <div class="col-xl-10">
-                    <div class="row align-items-center">
-                        <div class="col-xl-9 col-md-9">
-                            <div class="music_field">
-                                <div class="thumb">
-                                    <img src="img/music_man/2.png" alt="">
-                                </div>
-                                <div class="audio_name">
-                                    <div class="name">
-                                        <h4>Frando Kally</h4>
-                                        <p>10 November, 2019</p>
+                    <div class="col-xl-10">
+                        <div class="row align-items-center">
+                            <div class="col-xl-9 col-md-9">
+                                <div class="music_field">
+                                    <div class="thumb">
+                                        <img width="148px" height="148px"
+                                            src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img ?? null) }}"
+                                            alt="">
                                     </div>
-                                    <audio preload="auto" controls>
-                                        <source src="https://www.w3schools.com/html/horse.mp3">
-                                    </audio>
+                                    <div class="audio_name">
+                                        <div class="name">
+                                            <h4>{{ $item->name ?? null }}</h4>
+                                            <p>{{ $item->time_create ?? null }}</p>
+                                        </div>
+                                        <audio preload="auto" controls>
+                                            <source src="https://www.w3schools.com/html/horse.mp3">
+                                        </audio>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-md-3">
-                            <div class="music_btn">
-                                <a href="#" class="boxed-btn">buy albam</a>
+                            <div class="col-xl-3 col-md-3">
+                                <div class="music_btn">
+                                    <a href="#" class="boxed-btn">Xem thông tin bài hát</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <div class="row align-items-center justify-content-center mb-20">
-                <div class="col-xl-10">
-                    <div class="row align-items-center">
-                        <div class="col-xl-9 col-md-9">
-                            <div class="music_field">
-                                <div class="thumb">
-                                    <img src="img/music_man/3.png" alt="">
-                                </div>
-                                <div class="audio_name">
-                                    <div class="name">
-                                        <h4>Frando Kally</h4>
-                                        <p>10 November, 2019</p>
-                                    </div>
-                                    <audio preload="auto" controls>
-                                        <source src="https://www.w3schools.com/html/horse.mp3">
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-3">
-                            <div class="music_btn">
-                                <a href="#" class="boxed-btn">buy albam</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            @endforeach
 
-            </div>
+
         </div>
     </div>
     <!-- music_area end  -->
@@ -252,7 +151,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-65">
-                        <h3>Image Galleries</h3>
+                        <h3>Hình ảnh nổi bật</h3>
                     </div>
                 </div>
             </div>
@@ -328,8 +227,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="text text-center">
-                        <h3>Contact For RSVP</h3>
-                        <a class="boxed-btn3" href="contact.html">Contact Me</a>
+                        <h3>Liên Hệ Try92</h3>
+                        <a class="boxed-btn3" href="{{ route('contact') }}">Liên Hệ</a>
                     </div>
                 </div>
             </div>
