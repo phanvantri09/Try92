@@ -1,5 +1,5 @@
 <div class="slider_area">
-    <div style="background-image: url({{\App\Helpers\ConstCommon::getLinkImageToStorage($banners->img)}})" class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
+    <div style="background-image: url({{empty($banners->img) ? '../img/banner/banner.png' : \App\Helpers\ConstCommon::getLinkImageToStorage($banners->img) }})" class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

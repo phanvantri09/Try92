@@ -63,7 +63,10 @@ class HomeController extends Controller
         $blogs = $this->blogRepository->all();
         return view('user.blogs', compact(['blogs']));
     }
-    
+    public function blogsItem($id){
+        $blogs = $this->blogRepository->show($id);
+        return view('user.blogsItem', compact(['blogs']));
+    }
     
     
 }

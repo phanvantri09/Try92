@@ -5,12 +5,13 @@
                 <div class="col-xl-6 col-md-6">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            
+
                         </h3>
                         <div class="subscribe-from">
                             <div action="#">
                                 <input type="text" placeholder="Enter your mail">
-                                <button type="submit"><a href="https://www.youtube.com/@try92">Đăng ký kênh</a></button>
+                                <button type="submit"><a href="https://www.youtube.com/@try92" target="_blank">Đăng ký
+                                        kênh</a></button>
                             </div>
                         </div>
                         <p class="sub_text">Theo dõi hành trình âm nhạc của mình ở đây nhé.
@@ -42,17 +43,18 @@
                                     </a>
                                 </li> --}}
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.youtube.com/@try92" target="_blank">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a style="background-color: red"  href="https://www.youtube.com/@try92" target="_blank">
+                                    <a style="background-color: red" href="https://www.youtube.com/@try92"
+                                        target="_blank">
                                         <i class="fa fa-youtube-play"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.tiktok.com/@try922k" target="_blank">
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
@@ -76,11 +78,10 @@
                 <div class="col-xl-5 col-md-6">
                     <div class="footer_links">
                         <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about</a></li>
-                            <li><a href="#">tracks</a></li>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="#">contact</a></li>
+                            <li><a class="active" href="{{ route('index') }}">Trang chủ</a></li>
+                            <li><a href="{{ route('contact') }}" target="_blank">Liên hệ</a></li>
+                            <li><a href="{{ route('tracks') }}" target="_blank">tracks</a></li>
+                            <li><a href="{{ route('blogs') }}" target="_blank">blogs</a>
                         </ul>
                     </div>
                 </div>

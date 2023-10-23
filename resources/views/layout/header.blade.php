@@ -6,7 +6,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <!-- <div class="logo"> -->
-                            <a href="index.html">
+                            <a href="{{ route('index') }}">
                                 <!-- <img src="img/logo.png" alt=""> -->
                                 <h1 class="text-white">Try92</h1>
                             </a>
@@ -16,10 +16,10 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Trang chủ</a></li>
-                                        <li><a href="{{ route('contact') }}">Liên hệ</a></li>
-                                        <li><a href="{{ route('tracks') }}">tracks</a></li>
-                                        <li><a href="{{ route('blogs') }}">blogs</a>
+                                        <li><a class="active" href="{{ route('index') }}">Trang chủ</a></li>
+                                        <li><a href="{{ route('contact') }}" target="_blank">Liên hệ</a></li>
+                                        <li><a href="{{ route('tracks') }}" target="_blank">tracks</a></li>
+                                        <li><a href="{{ route('blogs') }}" target="_blank">blogs</a>
                                         </li>
                                         @auth
                                         <li><a href="#">Admin <i class="ti-angle-down"></i></a>
@@ -43,9 +43,9 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="social_icon text-right">
                                 <ul>
-                                    <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                    <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.facebook.com/Try922000" target="_blank"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.youtube.com/@try92" target="_blank"> <i class="fa fa-youtube-play"></i> </a></li>
+                                    <li><a href="https://www.tiktok.com/@try922k" target="_blank"> <i class="fa fa-instagram"></i> </a></li>
                                 </ul>
                             </div>
                         </div>

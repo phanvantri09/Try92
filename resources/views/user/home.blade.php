@@ -51,8 +51,8 @@
                 <div class="col-xl-7 col-md-6">
                     <div class="about_info">
                         <h3>Try92</h3>
-                        <p>Tên thật là Phan Văn Trí, sinh ra ở Quảng Nam(92) <br>
-                            Là GenZ chính hiệu | 09-02-2020, Mình đã tập viết nhạc từ những năm cấp 3 và nuôi dưỡng niềm đam
+                        <p>Mình tên thật là Phan Văn Trí, sinh ra ở Quảng Nam(92) <br>
+                            Là GenZ chính hiệu | 09-02-2000, Mình đã tập viết nhạc từ những năm cấp 3 và nuôi dưỡng niềm đam
                             mê đến bây giờ.</p>
                         {{-- <div class="signature">
                             <img src="img/about/signature.png" alt="">
@@ -78,14 +78,14 @@
                             </div>
                             <div class="hover_elements">
                                 <div class="video">
-                                    <a class="popup-video" href="https://www.youtube.com/watch?app=desktop&v=ycMYhQsifTI">
+                                    <a class="popup-video" href="https://www.youtube.com/watch?app=desktop&v=dILfyDeQaRk">
                                         <i class="fa fa-play"></i>
                                     </a>
                                 </div>
 
                                 <div class="hover_inner">
                                     <span>{{ $item->created_at ?? null }}</span>
-                                    <h3><a href="{{ route('blogsItem', ['id' => $item->id]) }}">{{ $item->name ?? null }}</a></h3>
+                                    <h3><a href="{{ route('blogsItem', ['id' => $item->id]) }}"  target="_blank">{{ $item->name ?? null }}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             </div>
                             <div class="col-xl-3 col-md-3">
                                 <div class="music_btn">
-                                    <a href="#" class="boxed-btn">Xem thông tin bài hát</a>
+                                    <a href="{{$item->link_ytb ?? 'https://www.youtube.com/@try92' }}"  target="_blank" class="boxed-btn">Xem thông tin bài hát</a>
                                 </div>
                             </div>
                         </div>
@@ -146,79 +146,7 @@
     <!-- music_area end  -->
 
     <!-- gallery -->
-    <div class="gallery_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-65">
-                        <h3>Hình ảnh nổi bật</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row grid">
-                <div class="col-xl-5 col-lg-5 grid-item cat1 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="portfolio-img">
-                            <img src="img/gallery/1.png" alt="">
-                        </div>
-                        <div class="gallery_hover">
-                            <a class="popup-image" href="img/gallery/1.png" class="hover_inner">
-                                <i class="ti-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-7 grid-item cat3 cat4 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="portfolio-img">
-                            <img src="img/gallery/2.png" alt="">
-                        </div>
-                        <div class="gallery_hover">
-                            <a class="popup-image" href="img/gallery/2.png" class="hover_inner">
-                                <i class="ti-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 grid-item cat4 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="portfolio-img">
-                            <img src="img/gallery/3.png" alt="">
-                        </div>
-                        <div class="gallery_hover">
-                            <a class="popup-image" href="img/gallery/3.png" class="hover_inner">
-                                <i class="ti-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 grid-item cat2 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="portfolio-img">
-                            <img src="img/gallery/4.png" alt="">
-                        </div>
-                        <div class="gallery_hover">
-                            <a class="popup-image" href="img/gallery/4.png" class="hover_inner">
-                                <i class="ti-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 grid-item cat2 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="portfolio-img">
-                            <img src="img/gallery/5.png" alt="">
-                        </div>
-                        <div class="gallery_hover">
-                            <a class="popup-image" href="img/gallery/5.png" class="hover_inner">
-                                <i class="ti-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layout.images')
     <!--/ gallery -->
 
     <!-- contact_rsvp -->
@@ -228,7 +156,7 @@
                 <div class="col-xl-12">
                     <div class="text text-center">
                         <h3>Liên Hệ Try92</h3>
-                        <a class="boxed-btn3" href="{{ route('contact') }}">Liên Hệ</a>
+                        <a class="boxed-btn3" href="{{ route('contact') }}"  target="_blank">Liên Hệ</a>
                     </div>
                 </div>
             </div>
