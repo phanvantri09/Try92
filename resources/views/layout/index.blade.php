@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4920313017945857"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     @yield('css')
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
@@ -43,7 +44,7 @@
         <![endif]-->
 
     <!-- header-start -->
-   @include('layout.header')
+    @include('layout.header')
     <!-- header-end -->
 
     <!-- slider_area_start -->
@@ -51,9 +52,9 @@
         use Illuminate\Support\Facades\Route;
     @endphp
     @if (Route::currentRouteName() == 'index')
-    @include('layout.banner')
+        @include('layout.banner')
     @endif
-    
+
     <!-- slider_area_end -->
 
     @yield('content')
