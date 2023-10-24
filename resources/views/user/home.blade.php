@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-xl-3 col-md-3">
                             <div class="music_btn">
-                                <a href="#" class="boxed-btn">Nghe ngay</a>
+                                <a href="{{$products[0]->link_ytb ?? '#' }}" target="_blank" class="boxed-btn">Nghe ngay</a>
                             </div>
                         </div>
                     </div>
