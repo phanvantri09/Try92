@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::fallback(function () {
+    return redirect('/')->with('error', "Bạn đã nhập sai đường dẫn");
+});
 
 Route::group(['prefix' => '/'], function () {
         Route::controller(HomeController::class)->group(function () {
@@ -30,10 +32,10 @@ Route::group(['prefix' => '/'], function () {
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login','login')->name('login');
-    Route::post('/login','login')->name('login');
+    Route::post('/login','loginPost')->name('login');
     Route::get('/logout', 'logout')->name('logout');
 });
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function () {
     Route::group(['prefix' => 'banner', 'as' =>'banner.'], function () {
         Route::controller(BannerController::class)->group(function () {
             // danh sách
