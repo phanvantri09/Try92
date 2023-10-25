@@ -82,7 +82,7 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3>hulk09022000@gmail.com</h3>
+                            <h3>try92.fan@gmail.com</h3>
                             <p>Gửi mail cho tôi nhé</p>
                         </div>
                     </div>
