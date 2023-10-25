@@ -1,5 +1,10 @@
 @extends('layout.index')
 @section('css')
+    <style>
+        .gallery_area {
+            padding-top: 0px;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="bradcam_area breadcam_bg_2">
@@ -17,12 +22,15 @@
     <!-- music_area  -->
     <div class="music_area music_gallery inc_padding">
         <div class="container">
-          @foreach ($products as $item)
-          <div class="row align-items-center justify-content-center mb-20">
+            @foreach ($products as $item)
+                <div class="row align-items-center justify-content-center mb-20">
 
-               <div class="col-xl-10">
-                   <div class="row align-items-center">
-                       <div class="col-xl-9 col-md-9">
+                    <div class="col-xl-10">
+                        <div class="row align-items-center">
+                            <div class="col-xl-12 col-md-12">
+                                {!! $item->link_apple ?? null !!}
+                            </div>
+                            {{-- <div class="col-xl-9 col-md-9">
                            <div class="music_field">
                                <div class="thumb">
                                    <img width="148px" height="148px"
@@ -39,17 +47,18 @@
                                    </audio>
                                </div>
                            </div>
-                       </div>
-                       <div class="col-xl-3 col-md-3">
-                           <div class="music_btn">
-                               <a href="{{$item->link_ytb ?? 'https://www.youtube.com/@try92' }}" target="_blank" class="boxed-btn">Xem thông tin bài hát</a>
-                           </div>
-                       </div>
-                   </div>
-               </div>
+                       </div> --}}
+                            <div class="col-xl-12 col-md-12">
+                                <div class="music_btn d-flex justify-content-center">
+                                    <a href="{{ $item->link_ytb ?? 'https://www.youtube.com/@try92' }}" target="_blank"
+                                        class="boxed-btn">Xem video ca nhạc</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-           </div>
-          @endforeach
+                </div>
+            @endforeach
         </div>
     </div>
     <!-- music_area end  -->
@@ -58,14 +67,13 @@
     @include('layout.images')
     <!-- / youtube_video_area  -->
 
-    <!-- contact_rsvp -->
     <div class="contact_rsvp">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="text text-center">
-                        <h3>Contact For RSVP</h3>
-                        <a class="boxed-btn3" href="contact.html">Contact Me</a>
+                        <h3>Liên Hệ Try92</h3>
+                        <a class="boxed-btn3" href="{{ route('contact') }}" target="_blank">Liên Hệ</a>
                     </div>
                 </div>
             </div>

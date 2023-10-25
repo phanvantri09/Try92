@@ -25,7 +25,6 @@ class RQEdit extends FormRequest
     {
         return [
             'name'=>'required', 
-            'img'=>'required', 
             'content'=>'required', 
         ];
         
@@ -34,7 +33,6 @@ class RQEdit extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập',
-            'img.required' => 'Vui lòng nhập',
             'content.required' => 'Vui lòng nhập',
         ];
     }

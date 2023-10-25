@@ -108,7 +108,7 @@
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Link link_apple</label>
+                                    <label>Link link_spotify nhỏ</label>
                                     <input type="text" name="link_apple" class="form-control" value="{{old('link_apple',$data->link_apple)}}" placeholder="Nhập Link.">
                                     @error('link_apple')
                                     <div class="alert alert-danger">{{ $errors->first('link_apple') }}</div>

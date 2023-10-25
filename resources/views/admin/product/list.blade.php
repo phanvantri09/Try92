@@ -39,14 +39,14 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->time_create }}</td>
                                     <td>
-                                        <a href="{{ $item->link_ytb }}" target="_blank">{{ $item->link_ytb }}</a><br>
-                                        <a href="{{ $item->link_ytb_topic }}" target="_blank">{{ $item->link_ytb_topic }}</a><br>
+                                        <a href="{{ $item->link_ytb }}" target="_blank">{!! $item->link_ytb !!}</a><br>
+                                        <a href="{{ $item->link_ytb_topic }}" target="_blank">{!! $item->link_ytb_topic !!}</a><br>
                                         <a href="{{ $item->link_zing }}" target="_blank">{{ $item->link_zing }}</a><br>
-                                        <a href="{{ $item->link_spotify }}" target="_blank">{{ $item->link_spotify }}</a><br>
-                                        <a href="{{ $item->link_apple }}" target="_blank">{{ $item->link_apple }}</a><br>
-                                        <a href="{{ $item->link_NCT }}" target="_blank">{{ $item->link_NCT }}</a><br>
-                                        <a href="{{ $item->link_tiktok }}" target="_blank">{{ $item->link_tiktok }}</a><br>
-                                        <a href="{{ $item->link_facebook }}" target="_blank">{{ $item->link_facebook }}</a><br>
+                                        <a href="{{ $item->link_spotify }}" target="_blank">{!! $item->link_spotify !!}</a><br>
+                                        <a href="{{ $item->link_apple }}" target="_blank">{!! $item->link_apple !!}</a><br>
+                                        <a href="{{ $item->link_NCT }}" target="_blank">{!! $item->link_NCT !!}</a><br>
+                                        <a href="{{ $item->link_tiktok }}" target="_blank">{!! $item->link_tiktok !!}</a><br>
+                                        <a href="{{ $item->link_facebook }}" target="_blank">{!! $item->link_facebook !!}</a><br>
                                         
                                     </td>
                                     <td><img width="180px" height="auto"

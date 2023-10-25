@@ -8,7 +8,10 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-10">
                     <div class="row align-items-center">
-                        <div class="col-xl-9 col-md-9">
+                        <div class="col-xl-12 col-md-12">
+                            {!! $products[0]->link_spotify ?? ($products[1]->link_spotify ?? ($products[3]->link_spotify ?? null)) !!}
+                        </div>
+                        {{-- <div class="col-xl-9 col-md-9">
                             <div class="music_field">
                                 <div class="thumb">
                                     <img height="200px" width="200px"
@@ -25,10 +28,11 @@
                                     </audio>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-md-3">
-                            <div class="music_btn">
-                                <a href="{{$products[0]->link_ytb ?? '#' }}" target="_blank" class="boxed-btn">Nghe ngay</a>
+                        </div> --}}
+                        <div class="col-xl-12 col-md-12">
+                            <div class="music_btn d-flex justify-content-center">
+                                <a href="{{ $products[0]->link_ytb ?? 'https://www.youtube.com/@try92' }}" target="_blank"
+                                    class="boxed-btn">Xem video ca nhạc</a>
                             </div>
                         </div>
                     </div>
@@ -85,7 +89,8 @@
 
                                 <div class="hover_inner">
                                     <span>{{ $item->created_at ?? null }}</span>
-                                    <h3><a href="{{ route('blogsItem', ['id' => $item->id]) }}"  target="_blank">{{ $item->name ?? null }}</a></h3>
+                                    <h3><a href="{{ route('blogsItem', ['id' => $item->id]) }}"
+                                            target="_blank">{{ $item->name ?? null }}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -111,8 +116,9 @@
 
                     <div class="col-xl-10">
                         <div class="row align-items-center">
-                            <div class="col-xl-9 col-md-9">
-                                <div class="music_field">
+                            <div class="col-xl-12 col-md-12">
+                                {!! $item->link_apple ?? null !!}
+                                {{-- <div class="music_field">
                                     <div class="thumb">
                                         <img width="148px" height="148px"
                                             src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img ?? null) }}"
@@ -127,11 +133,12 @@
                                             <source src="https://www.w3schools.com/html/horse.mp3">
                                         </audio>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="col-xl-3 col-md-3">
-                                <div class="music_btn">
-                                    <a href="{{$item->link_ytb ?? 'https://www.youtube.com/@try92' }}"  target="_blank" class="boxed-btn">Xem thông tin bài hát</a>
+                            <div class="col-xl-12 col-md-12">
+                                <div class="music_btn d-flex justify-content-center">
+                                    <a href="{{ $item->link_ytb ?? 'https://www.youtube.com/@try92' }}" target="_blank"
+                                        class="boxed-btn">Xem video ca nhạc</a>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +163,7 @@
                 <div class="col-xl-12">
                     <div class="text text-center">
                         <h3>Liên Hệ Try92</h3>
-                        <a class="boxed-btn3" href="{{ route('contact') }}"  target="_blank">Liên Hệ</a>
+                        <a class="boxed-btn3" href="{{ route('contact') }}" target="_blank">Liên Hệ</a>
                     </div>
                 </div>
             </div>
