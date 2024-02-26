@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="slider_text text-center ">
-                        <h3>Try92 </h3>
+                        <h3>Try92 đầu tháng 4 ra nhạc ạ</h3>
                     </div>
                 </div>
             </div>
