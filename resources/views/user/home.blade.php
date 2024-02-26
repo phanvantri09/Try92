@@ -69,7 +69,7 @@
     <!--/ about_area  -->
 
     <!-- youtube_video_area  -->
-    <div class="youtube_video_area">
+    {{-- <div class="youtube_video_area">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 @foreach ($blogs as $item)
@@ -98,7 +98,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- / youtube_video_area  -->
 
     <!-- music_area  -->
