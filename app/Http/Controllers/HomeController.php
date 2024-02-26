@@ -64,7 +64,10 @@ class HomeController extends Controller
         return view('user.blogs', compact(['blogs']));
     }
     public function blogsItem($id){
-        $blogs = $this->blogRepository->show($id);
+        $blogs = $this->blogRepository->getByTitle($id);
+        if (empty($blogs)) {
+            return redirect()->route('home');
+        }
         return view('user.blogsItem', compact(['blogs']));
     }
     

@@ -29,7 +29,7 @@
                          </div>
 
                          <div class="blog_details">
-                             <a class="d-inline-block" href="{{ route('blogsItem', ['id'=>$blog->id]) }}">
+                             <a class="d-inline-block" href="{{ route('blogsItem', ['id'=>$blog->name]) }}">
                                  <h2>{{$blog->name ?? null}}</h2>
                              </a>
                              <p>{!!$blog->content_pre ?? null!!}</p>
