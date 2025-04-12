@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Try92</b> Admin</a>
+    <a href="../../index2.html"><b>DCN MEDIA</b> Admin</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
